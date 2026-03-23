@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto — Transformações 2D</title>
+  <style>
+    body { margin: 20px; font-family: sans-serif; }
+    canvas { border: 1px solid #333; display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<h2>Projeto — Transformações 2D</h2>
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = canvas.width;
+const H = canvas.height;
+
+// =============================================================
+// VARIÁVEIS DE ESTADO
+// Coloque aqui as variáveis que mudam ao longo do tempo
+// (ângulos, posições, escalas, velocidades, etc.)
+// =============================================================
+let angulo = 0;
+let posX = W / 2;
+let posY = H / 2;
+
+// =============================================================
+// FUNÇÕES DE DESENHO
+// Crie funções para cada objeto da sua cena.
+// Desenhe sempre ao redor da ORIGEM (0,0) e use transformações
+// para posicionar, rotacionar e escalar.
+// =============================================================
+
+function desenhaQuadrado(tamanho, cor) {
+  ctx.fillStyle = cor;
+  ctx.fillRect(-tamanho / 2, -tamanho / 2, tamanho, tamanho);
+  ctx.strokeStyle = '#000';
+  ctx.strokeRect(-tamanho / 2, -tamanho / 2, tamanho, tamanho);
+}
+
+function desenhaTriangulo(base, altura, cor) {
+  ctx.fillStyle = cor;
+  ctx.beginPath();
+  ctx.moveTo(0, -altura / 2);
+  ctx.lineTo(-base / 2, altura / 2);
+  ctx.lineTo(base / 2, altura / 2);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+}
+
+// =============================================================
+// LOOP DE ANIMAÇÃO
+// Esta função é chamada a cada frame (~60x por segundo).
+// =============================================================
+function animar() {
+  // --- RESET da matriz (obrigatório a cada frame!) ---
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  // --- ATUALIZAR ESTADO ---
+  angulo += 0.02;
+
+  // =============================================================
+  // DESENHAR A CENA
+  // Use ctx.save() e ctx.restore() para isolar as transformações
+  // de cada objeto.
+  // =============================================================
+
+  // Exemplo: quadrado no centro, girando
+  ctx.save();
+    ctx.translate(posX, posY);       // posiciona no centro
+    ctx.rotate(angulo);              // gira ao redor do centro
+    desenhaQuadrado(80, 'steelblue');
+  ctx.restore();
+
+  // Exemplo: triângulo orbitando o quadrado
+  ctx.save();
+    ctx.translate(posX, posY);       // vai pro centro
+    ctx.rotate(angulo * 2);          // orbita mais rápido
+    ctx.translate(150, 0);           // afasta do centro
+    ctx.scale(0.8, 0.8);            // um pouco menor
+    desenhaTriangulo(40, 50, 'tomato');
+  ctx.restore();
+
+  // Exemplo: escala com ponto fixo (canto superior esquerdo)
+  ctx.save();
+    var px = 100, py = 100;
+    ctx.translate(px, py);           // volta
+    ctx.scale(1 + 0.3 * Math.sin(angulo), 1 + 0.3 * Math.sin(angulo));
+    ctx.translate(-px, -py);         // leva à origem
+    ctx.fillStyle = 'seagreen';
+    ctx.fillRect(70, 70, 60, 60);
+    ctx.strokeRect(70, 70, 60, 60);
+  ctx.restore();
+
+  // --- PRÓXIMO FRAME ---
+  requestAnimationFrame(animar);
+}
+
+// =============================================================
+// INTERATIVIDADE (BÔNUS)
+// Adicione controles de teclado ou mouse se quiser.
+// =============================================================
+document.addEventListener('keydown', function(e) {
+  switch (e.key) {
+    case 'ArrowLeft':  posX -= 10; break;
+    case 'ArrowRight': posX += 10; break;
+    case 'ArrowUp':    posY -= 10; break;
+    case 'ArrowDown':  posY += 10; break;
+  }
+});
+
+// Inicia a animação
+animar();
+</script>
+</body>
+</html>
