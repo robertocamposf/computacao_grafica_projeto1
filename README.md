@@ -1,6 +1,3 @@
-# computacao_grafica_projeto1
-
-
 # Projeto 3D - Faculdade
 
 Este projeto consiste em uma aplicação web com modelos 3D utilizando JavaScript.
