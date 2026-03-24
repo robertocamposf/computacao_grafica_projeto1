@@ -5,6 +5,7 @@ Este projeto consiste em uma aplicação web com modelos 2D utilizando JavaScrip
 ## 🚀 Tecnologias
 - HTML
 - JavaScript
+- CSS
 
 ## 📦 Como executar
 1. Baixe o projeto
