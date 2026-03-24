@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #111;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+canvas {
+  background: #222;
+  display: block;
+  margin: 20px auto;
+}
+
+.controls button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
