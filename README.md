@@ -11,5 +11,5 @@ Este projeto consiste em uma aplicação web com modelos 3D utilizando JavaScrip
 2. Abra o index.html no navegador
 
 ## 👨‍🎓 Autores
-João Carlos
-Roberto Campos
+- João Carlos
+- Roberto Campos
