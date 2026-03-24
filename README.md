@@ -1,6 +1,6 @@
-# Projeto 3D - Faculdade
+# Projeto 2D - Faculdade
 
-Este projeto consiste em uma aplicação web com modelos 3D utilizando JavaScript.
+Este projeto consiste em uma aplicação web com modelos 2D utilizando JavaScript.
 
 ## 🚀 Tecnologias
 - HTML
