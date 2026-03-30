@@ -15,6 +15,7 @@ Este projeto consiste em uma aplicação web com modelos 2D utilizando JavaScrip
 - **Seta para Cima (↑):** Acelerar propulsor
 - **Seta para Baixo (↓):** Frear / Marcha à ré
 - **Setas Laterais (← / →):** Rotacionar a nave
+- **Barra de Espaço (_):** Atirar mísseis
 
 ## 👨‍🎓 Autores
 - João Carlos
