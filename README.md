@@ -18,5 +18,5 @@ Este projeto consiste em uma aplicação web com modelos 2D utilizando JavaScrip
 - **Barra de Espaço (_):** Atirar mísseis
 
 ## 👨‍🎓 Autores
-- João Carlos
-- Roberto Campos
+- João Carlos Pires
+- Roberto de Sá Campos
